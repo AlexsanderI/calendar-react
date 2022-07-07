@@ -50,18 +50,26 @@
 .day-label {
   height: 100%;
   display: flex;
+  position: relative;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
   opacity: 0.6;
 
   &__day-name {
+    margin-bottom: 5px;
     font-size: 14px;
     text-transform: uppercase;
+    &-tody {
+      color: blue;
+    }
   }
 
   &__day-number {
     font-size: 22px;
+    &-tody {
+      color: white;
+    }
   }
 }
 
