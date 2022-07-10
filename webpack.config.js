@@ -41,7 +41,7 @@ module.exports = (env, argv) => {
       historyApiFallback: true,
       open: true,
       hot: true,
-      port: 8080,
+      port: 8081,
     },
   };
 
@@ -53,7 +53,7 @@ module.exports = (env, argv) => {
     config.plugins.push(
       new MiniCssExtractPlugin({
         filename: '[name].css',
-      }),
+      })
     );
   }
 

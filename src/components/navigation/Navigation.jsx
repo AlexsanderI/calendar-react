@@ -6,15 +6,10 @@ import moment from 'moment';
 
 const Navigation = ({ weekDates }) => {
   const formatDate = (date) => moment(date).format('DD MMM YYYY');
-  // const dates = new Date(
-  //   new Date().getFullYear(),
-  //   new Date().getMonth(),
-  //   new Date().getDay()
-  //   // new Date().getTime()
-  // );
+
   console.log(formatDate(new Date()));
   let isToday = true;
-  // console.log(dayDate.getDate());
+
   return (
     <header className='calendar__header'>
       {weekDates.map((dayDate) => {
