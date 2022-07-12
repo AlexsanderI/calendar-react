@@ -7,7 +7,6 @@ import moment from 'moment';
 const Navigation = ({ weekDates }) => {
   const formatDate = (date) => moment(date).format('DD MMM YYYY');
 
-  console.log(formatDate(new Date()));
   let isToday = true;
 
   return (

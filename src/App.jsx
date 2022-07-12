@@ -43,6 +43,7 @@ class App extends Component {
     return (
       <>
         <Header
+          weekDates={weekDates}
           nextWeek={this.nextWeek}
           previuseWeek={this.previuseWeek}
           thisWeek={this.thisWeek}

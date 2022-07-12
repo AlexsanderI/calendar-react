@@ -1,8 +1,30 @@
 import React from 'react';
-
 import './header.scss';
+import moment from 'moment';
 
-const Header = ({ nextWeek, previuseWeek, thisWeek }) => {
+const Header = ({ weekDates, nextWeek, previuseWeek, thisWeek }) => {
+  const formatMonthYear = (date) => moment(date).format('MMMM YYYY');
+  const formatMonth = (date) => moment(date).format('MMMM');
+  const formatYear = (date) => moment(date).format('YYYY');
+
+  const displayedDay = (weekDates) => {
+    const firstWeekDay = weekDates[0];
+    const lastWeekDay = weekDates[weekDates.length - 1];
+    if (formatMonth(firstWeekDay) === formatMonth(lastWeekDay)) {
+      return formatMonthYear(firstWeekDay);
+    }
+    if (
+      formatMonth(firstWeekDay) !== formatMonth(lastWeekDay) &&
+      formatYear(firstWeekDay) === formatYear(lastWeekDay)
+    ) {
+      return `${formatMonth(firstWeekDay)} - ${formatMonthYear(lastWeekDay)}`;
+    } else {
+      return `${formatMonthYear(firstWeekDay)} - ${formatMonthYear(
+        lastWeekDay
+      )}`;
+    }
+  };
+
   return (
     <header className='header'>
       <button className='button create-event-btn'>
@@ -18,7 +40,9 @@ const Header = ({ nextWeek, previuseWeek, thisWeek }) => {
         <button className='icon-button navigation__nav-icon'>
           <i className='fas fa-chevron-right' onClick={nextWeek}></i>
         </button>
-        <span className='navigation__displayed-month'>Jul</span>
+        <span className='navigation__displayed-firstWeekDay'>
+          {displayedDay(weekDates)}
+        </span>
       </div>
     </header>
   );
