@@ -2,7 +2,13 @@ import React from 'react';
 import './header.scss';
 import moment from 'moment';
 
-const Header = ({ weekDates, nextWeek, previuseWeek, thisWeek }) => {
+const Header = ({
+  weekDates,
+  nextWeek,
+  previuseWeek,
+  thisWeek,
+  showDialog,
+}) => {
   const formatMonthYear = (date) => moment(date).format('MMMM YYYY');
   const formatMonth = (date) => moment(date).format('MMMM');
   const formatYear = (date) => moment(date).format('YYYY');
@@ -27,7 +33,7 @@ const Header = ({ weekDates, nextWeek, previuseWeek, thisWeek }) => {
 
   return (
     <header className='header'>
-      <button className='button create-event-btn'>
+      <button className='button create-event-btn' onClick={showDialog}>
         <i className='fas fa-plus create-event-btn__icon'></i>Create
       </button>
       <div className='navigation'>

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
+import Modal from './components/modal/Modal.jsx';
 
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
@@ -14,6 +15,7 @@ const changeWeek = (day) => {
 class App extends Component {
   state = {
     weekStartDate: 0,
+    isOpen: true,
   };
 
   nextWeek = () => {
@@ -34,6 +36,18 @@ class App extends Component {
     });
   };
 
+  hideDialog = () => {
+    this.setState({
+      isOpen: false,
+    });
+  };
+
+  showDialog = () => {
+    this.setState({
+      isOpen: true,
+    });
+  };
+
   render() {
     const { weekStartDate } = this.state;
     const weekDates = generateWeekRange(
@@ -47,8 +61,10 @@ class App extends Component {
           nextWeek={this.nextWeek}
           previuseWeek={this.previuseWeek}
           thisWeek={this.thisWeek}
+          showDialog={this.showDialog}
         />
         <Calendar weekDates={weekDates} />
+        {this.state.isOpen && <Modal hideDialog={this.hideDialog} />}
       </>
     );
   }
