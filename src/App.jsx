@@ -15,7 +15,7 @@ const changeWeek = (day) => {
 class App extends Component {
   state = {
     weekStartDate: 0,
-    isOpen: true,
+    isOpen: false,
   };
 
   nextWeek = () => {
@@ -71,3 +71,4 @@ class App extends Component {
 }
 
 export default App;
+

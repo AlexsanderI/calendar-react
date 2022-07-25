@@ -20,7 +20,7 @@ class Modal extends Component {
   // };
   handleCloseDialog = (event) => {
     this.props.hideDialog();
-    if(event.target)
+    // if(event.target)
   };
   render() {
     // const { isOpen } = this.state;
