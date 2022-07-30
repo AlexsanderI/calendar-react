@@ -1,16 +1,18 @@
 import React from 'react';
 import Hour from '../hour/Hour';
+import Redline from '../redline/Redline';
 
 import './day.scss';
 
-const Day = ({ dataDay, dayEvents }) => {
-  console.log(dataDay);
+const Day = ({ dataDay, dayEvents, fullDate }) => {
   const hours = Array(24)
     .fill()
     .map((val, index) => index);
 
+  // console.log(date);
   return (
-    <div className='calendar__day' data-day={dataDay}>
+    <div className='calendar__day' dataday={dataDay}>
+      <Redline fullDate={fullDate} />
       {hours.map((hour) => {
         //getting all events from the day we will render
         const hourEvents = dayEvents.filter(

@@ -1,3 +1,5 @@
+// magic number fix
+
 import React, { Component } from 'react';
 import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
@@ -71,4 +73,3 @@ class App extends Component {
 }
 
 export default App;
-

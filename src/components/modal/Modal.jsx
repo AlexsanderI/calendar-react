@@ -3,27 +3,10 @@ import React, { Component } from 'react';
 import './modal.scss';
 
 class Modal extends Component {
-  // state = {
-  //   isOpen: false,
-  // };
-
-  // hideDialog = () => {
-  //   this.setState({
-  //     isOpen: false,
-  //   });
-  // };
-
-  // showDialog = () => {
-  //   this.setState({
-  //     isOpen: true,
-  //   });
-  // };
   handleCloseDialog = (event) => {
     this.props.hideDialog();
-    // if(event.target)
   };
   render() {
-    // const { isOpen } = this.state;
     return (
       <div className='modal overlay'>
         <div className='modal__content'>

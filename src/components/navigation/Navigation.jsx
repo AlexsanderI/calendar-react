@@ -15,8 +15,9 @@ const Navigation = ({ weekDates }) => {
         formatDate(new Date()) === formatDate(dayDate)
           ? (isToday = true)
           : (isToday = false);
+        console.log(dayDate);
         return (
-          <div className='calendar__day-label day-label'>
+          <div key={Math.random()} className='calendar__day-label day-label'>
             <span
               className={classNames('day-label__day-name', {
                 'day-label__day-name-tody': isToday === true,

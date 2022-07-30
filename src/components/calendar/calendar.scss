@@ -37,7 +37,7 @@
   }
 
   &__time-slot {
-    height: 59px;
+    height: 60px;
     position: relative;
     border-bottom: 1px solid #eee;
   }
@@ -78,4 +78,13 @@
   width: 100%;
   border-top: 2px solid red;
   z-index: 5;
+}
+
+.red-circle {
+  position: absolute;
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  background-color: red;
+  top: -6px;
 }
