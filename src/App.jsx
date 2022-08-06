@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 import Modal from './components/modal/Modal.jsx';
-
+import { fetchEventsList, createEvent, deleteEvent } from './gateway/events';
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
 import './common.scss';
@@ -18,6 +18,7 @@ class App extends Component {
   state = {
     weekStartDate: 0,
     isOpen: false,
+    events: [],
   };
 
   nextWeek = () => {
@@ -50,8 +51,30 @@ class App extends Component {
     });
   };
 
+  componentDidMount() {
+    this.fetchEvents();
+  }
+
+  fetchEvents = () => {
+    fetchEventsList().then((res) => {
+      this.setState({
+        events: res,
+      });
+    });
+  };
+
+  createNewEvent = (modalEvent) => {
+    createEvent(modalEvent).then(() => this.fetchEvents());
+  };
+
+  handeleDeleteEvent = (id) => {
+    // console.log(id);
+    return deleteEvent(id).then(() => this.fetchEvents());
+  };
+
   render() {
-    const { weekStartDate } = this.state;
+    const { weekStartDate, events } = this.state;
+    console.log(events);
     const weekDates = generateWeekRange(
       getWeekStartDate(changeWeek(weekStartDate))
     );
@@ -65,8 +88,18 @@ class App extends Component {
           thisWeek={this.thisWeek}
           showDialog={this.showDialog}
         />
-        <Calendar weekDates={weekDates} />
-        {this.state.isOpen && <Modal hideDialog={this.hideDialog} />}
+        <Calendar
+          weekDates={weekDates}
+          // showDialog={this.showDialog}
+          events={events}
+          deleteEvent={this.handeleDeleteEvent}
+        />
+        {this.state.isOpen && (
+          <Modal
+            hideDialog={this.hideDialog}
+            createNewEvent={this.createNewEvent}
+          />
+        )}
       </>
     );
   }

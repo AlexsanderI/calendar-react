@@ -18,6 +18,7 @@
     display: flex;
     width: 100%;
     height: fit-content;
+    margin-top: 6px;
   }
 
   &__time-scale {
@@ -82,9 +83,10 @@
 
 .red-circle {
   position: absolute;
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   background-color: red;
-  top: -6px;
+  top: -7px;
+  left: -6px;
 }

@@ -7,11 +7,8 @@ import events from '../../gateway/events';
 import './calendar.scss';
 
 class Calendar extends Component {
-  state = {
-    events,
-  };
-
   render() {
+    // console.log(this.props.events);
     const { weekDates } = this.props;
 
     return (
@@ -20,7 +17,12 @@ class Calendar extends Component {
         <div className='calendar__body'>
           <div className='calendar__week-container'>
             <Sidebar />
-            <Week weekDates={weekDates} events={this.state.events} />
+            <Week
+              weekDates={weekDates}
+              events={this.props.events}
+              deleteEvent={this.props.deleteEvent}
+              // showDialog={this.props.showDialog}
+            />
           </div>
         </div>
       </section>
