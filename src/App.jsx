@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 import Header from './components/header/Header.jsx';
 import Calendar from './components/calendar/Calendar.jsx';
 import Modal from './components/modal/Modal.jsx';
-import { fetchEventsList, createEvent, deleteEvent } from './gateway/events';
+import { fetchEvent, createEvent, deleteEvent } from './gateway/events';
 import { getWeekStartDate, generateWeekRange } from '../src/utils/dateUtils.js';
 
 import './common.scss';
@@ -56,7 +56,7 @@ class App extends Component {
   }
 
   fetchEvents = () => {
-    fetchEventsList().then((res) => {
+    fetchEvent().then((res) => {
       this.setState({
         events: res,
       });
@@ -68,13 +68,11 @@ class App extends Component {
   };
 
   handeleDeleteEvent = (id) => {
-    // console.log(id);
     return deleteEvent(id).then(() => this.fetchEvents());
   };
 
   render() {
     const { weekStartDate, events } = this.state;
-    console.log(events);
     const weekDates = generateWeekRange(
       getWeekStartDate(changeWeek(weekStartDate))
     );
@@ -90,7 +88,6 @@ class App extends Component {
         />
         <Calendar
           weekDates={weekDates}
-          // showDialog={this.showDialog}
           events={events}
           deleteEvent={this.handeleDeleteEvent}
         />

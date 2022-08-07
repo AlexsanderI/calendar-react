@@ -41,9 +41,12 @@ const Header = ({
           Today
         </button>
         <button className='icon-button navigation__nav-icon'>
-          <i className='fas fa-chevron-left' onClick={previuseWeek}></i>
+          <div className='navigation__nav-icon-circle'>
+            <i className='fas fa-chevron-left' onClick={previuseWeek}></i>
+          </div>
         </button>
         <button className='icon-button navigation__nav-icon'>
+          <div className='navigation__nav-icon-circle'></div>
           <i className='fas fa-chevron-right' onClick={nextWeek}></i>
         </button>
         <span className='navigation__displayed-firstWeekDay'>

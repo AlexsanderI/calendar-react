@@ -8,9 +8,7 @@ import './calendar.scss';
 
 class Calendar extends Component {
   render() {
-    // console.log(this.props.events);
     const { weekDates } = this.props;
-
     return (
       <section className='calendar'>
         <Navigation weekDates={weekDates} />

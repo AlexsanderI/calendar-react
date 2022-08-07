@@ -39,7 +39,6 @@ const Modal = ({ hideDialog, createNewEvent }) => {
       dateFrom < moment(new Date()).format('HH:mm') ||
       moment(new Date()).format('YYYY-MM-DD') > date
     ) {
-      console.log(date);
       alert(
         'This day completed or begin of time is not correct. Please check date & time.'
       );
@@ -48,7 +47,7 @@ const Modal = ({ hideDialog, createNewEvent }) => {
       hideDialog();
     }
   };
-  console.log(dateFrom, moment(new Date()).format('HH:mm'));
+
   return (
     <div className='modal overlay'>
       <div className='modal__content'>

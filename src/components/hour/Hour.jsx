@@ -4,7 +4,6 @@ import Event from '../event/Event';
 import { formatMins } from '../../../src/utils/dateUtils.js';
 
 const Hour = ({ dataHour, hourEvents, showDialog, deleteEvent }) => {
-  // console.log(hourEvents);
   return (
     <div
       className='calendar__time-slot'
@@ -19,8 +18,7 @@ const Hour = ({ dataHour, hourEvents, showDialog, deleteEvent }) => {
         const eventEnd = `${new Date(dateTo).getHours()}:${formatMins(
           new Date(dateTo).getMinutes()
         )}`;
-        // console.log(dateTo.getTime());
-        // console.log(dateFrom.getTime());
+
         return (
           <Event
             key={id}

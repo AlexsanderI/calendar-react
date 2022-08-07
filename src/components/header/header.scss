@@ -3,15 +3,15 @@
   height: 60px;
   padding: 0 48px;
   align-items: center;
-  // background-color: rgb(56, 114, 200);
+  border-bottom: 1px solid #dadce0;
 }
 
 .create-event-btn {
   display: flex;
   align-items: center;
   border-radius: 20px;
-  box-shadow: 0px 1px 2px 0px rgb(60 64 67 / 30%),
-    0px 1px 3px 1px rgb(60 64 67 / 15%);
+  box-shadow: 0px 1px 2px 0px rgba(60, 64, 67, 0.3),
+    0px 1px 3px 1px rgba(60, 64, 67, 0.15);
   background-color: rgba(255, 255, 255, 0.5);
   width: auto;
   margin-right: 30px;
@@ -20,16 +20,39 @@
     margin-right: 8px;
   }
 }
+.create-event-btn:hover {
+  background-color: #f6fafe;
+  transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0px 4px 4px 0px rgba(60, 64, 67, 0.3),
+    0px 8px 12px 6px rgba(60, 64, 67, 0.15);
+}
 
 .navigation {
   &__today-btn {
     margin-left: 32px;
     padding: 0 16px;
   }
+  &__today-btn:hover {
+    transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0px 4px 4px 0px rgba(60, 64, 67, 0.3),
+      0px 8px 12px 6px rgba(60, 64, 67, 0.15);
+  }
 
   &__nav-icon {
     font-size: 16px;
     margin-left: 20px;
+    border-radius: 50%;
+  }
+  &__nav-icon:hover {
+    transition: border 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1),
+      background-color 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0px 4px 4px 0px rgba(60, 64, 67, 0.3),
+      0px 8px 12px 6px rgba(60, 64, 67, 0.15);
   }
 
   &__displayed-month {

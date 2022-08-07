@@ -4,7 +4,6 @@ import Day from '../day/Day';
 import './week.scss';
 
 const Week = ({ weekDates, events, showDialog, deleteEvent }) => {
-  // console.log(events);
   return (
     <div className='calendar__week' onClick={showDialog}>
       {weekDates.map((dayStart) => {
@@ -13,7 +12,6 @@ const Week = ({ weekDates, events, showDialog, deleteEvent }) => {
         );
 
         const dayEvents = events.filter((event) => {
-          // console.log(dateFrom, dayStart);
           return (
             new Date(event.dateFrom) > dayStart &&
             new Date(event.dateTo) < dayEnd
