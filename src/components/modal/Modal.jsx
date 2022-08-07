@@ -34,11 +34,8 @@ const Modal = ({ hideDialog, createNewEvent }) => {
       dateTo: getDateTime(date, dateTo),
       description,
     };
-    if (
-      dateFrom > dateTo ||
-      dateFrom < moment(new Date()).format('HH:mm') ||
-      moment(new Date()).format('YYYY-MM-DD') > date
-    ) {
+
+    if (dateFrom > dateTo || moment(new Date()).format('YYYY-MM-DD') > date) {
       alert(
         'This day completed or begin of time is not correct. Please check date & time.'
       );
